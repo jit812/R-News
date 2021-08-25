@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:layout_gravity="center"
+    android:background="@drawable/weather_bg"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_toStartOf="@+id/txtclose"
+        android:layout_toLeftOf="@+id/txtclose"
+        android:paddingLeft="5dp"
+        android:text="Weather Report "
+        android:textColor="#3E3E3E"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/close_button"
+        android:gravity="center"
+        android:text="X"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/search_bar"
+            android:completionThreshold="1"
+            android:ems="10"
+            android:hint="search city..."
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#8E8C8C"
+            android:textColorHint="#80FBFAFA"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingStart="15dp"
+            android:paddingEnd="25dp" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/round_white"
+            android:onClick="onClick"
+            android:src="@drawable/search_black"
+            app:layout_constraintBottom_toBottomOf="@+id/cityName"
+            app:layout_constraintEnd_toEndOf="@+id/cityName"
+            app:layout_constraintTop_toTopOf="@+id/cityName" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="city"
+            android:textColor="@color/colorTextTitle"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityName" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=", country"
+            android:textColor="#7A7A7A"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/city"
+            app:layout_constraintStart_toEndOf="@+id/city" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="119dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/country"
+            app:srcCompat="@drawable/temp_foreground" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="---"
+            android:textColor="@color/colorTextTitle"
+            android:textSize="48sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/cityName" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="°C"
+            android:textColor="@color/colorTextTitle"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@+id/temp"
+            app:layout_constraintStart_toEndOf="@+id/temp"
+            app:layout_constraintTop_toTopOf="@+id/temp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/temp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:srcCompat="@drawable/humidity_foreground" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView13"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:srcCompat="@drawable/pressure_foreground" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:srcCompat="@drawable/wind_foreground" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity"
+            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintStart_toStartOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Air Pressure"
+            app:layout_constraintEnd_toEndOf="@+id/imageView12"
+            app:layout_constraintStart_toStartOf="@+id/imageView12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wind Speed"
+            app:layout_constraintEnd_toEndOf="@+id/imageView13"
+            app:layout_constraintStart_toStartOf="@+id/imageView13"
+            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+        <TextView
+            android:id="@+id/Hval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="--"
+            app:layout_constraintEnd_toEndOf="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/Pval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="--"
+            app:layout_constraintEnd_toEndOf="@+id/textView16"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/Wval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="--"
+            app:layout_constraintEnd_toEndOf="@+id/textView17"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>
